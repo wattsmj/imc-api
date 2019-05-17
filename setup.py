@@ -20,16 +20,20 @@ Contact: Please raise an issue on www.github.com/wattsmj/imc-api
 Description: Package installation file
 '''
 
-from setuptools import setup, find_packages
+import os
+from setuptools import find_packages, setup
+
+with open(os.path.join(os.path.dirname(__file__), 'README.md')) as readme:
+    README = readme.read()
 
 setup(
     name='imc-api',
     version="0.1.0",
     author='wattsmj',
+    license="GPL-3.0",
+    url="https://github.com/wattsmj/imc-api",
     description='A convience-style partial front-end to the iMC REST API (IMCRS) written in Python 3.',
-    keywords="iMC",
+    long_description=README,
     packages=find_packages(),
-    license="LICENSE.txt",
-    long_description='README.md',
-    install_requires=['requests', 'netaddr']
+    install_requires=['requests', 'netaddr'],
 )
